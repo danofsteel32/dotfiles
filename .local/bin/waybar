@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+
+/usr/bin/waybar --style="${XDG_CONFIG_HOME}/${HOSTNAME}/waybar/style.css" \
+    --config="${XDG_CONFIG_HOME}/${HOSTNAME}/waybar/config" \

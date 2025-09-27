@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+_remote_origin="$(git config --get remote.origin.url)"
+_repo_name="${_remote_origin##*/}"
+
+if [[ $_repo_name == "dotfiles" ]]; then
+  /usr/bin/fd --no-ignore-vcs "$@"
+else
+  /usr/bin/fd "$@"
+fi

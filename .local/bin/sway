@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+
+val=$(udevadm info -a -n /dev/dri/card1 | grep boot_vga | rev | cut -c 2)
+WLR_DRM_DEVICES="/dev/dri/card$val" /usr/bin/sway --unsupported-gpu --config="${XDG_CONFIG_HOME}/${HOSTNAME}/sway/config"

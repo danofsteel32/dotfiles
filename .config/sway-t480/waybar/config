@@ -1,0 +1,94 @@
+ 	{
+	  "layer": "top",
+      "modules-left": [
+	    "sway/workspaces",
+	    "sway/mode"
+	  ],
+      "modules-center": [
+	    "sway/window"
+	  ],
+      "modules-right": [
+	    "custom/weather",
+	    "cpu",
+	    "memory",
+	    "custom/transmission",
+	    "network",
+	    "pulseaudio",
+	    "clock",
+        "battery",
+	  ],
+	
+	  "battery": {
+	    "states": {
+	      "warning": 30,
+	      "critical": 15
+	    },
+	    "format": "{icon}  {capacity}%",
+	    "format-icons": ["", "", "", "", ""]
+	  },
+	
+	  "clock": {
+	    "format": " {:%Y-%m-%d %H:%M}",
+	    "tooltip-format": "{:%B %Y}\n<tt>{calendar}</tt>"
+	  },
+
+	  "cpu": {
+	    "format": "cpu: {usage}%"
+	  },
+	
+	  // transmission: shows upload/download speed, click to open web
+	  "custom/transmission": {
+	    "format": "{}",
+	    "exec": "transmission-remote -l | jq -Rsc 'split(\"\n\") | .[-2] | [scan(\"[0-9]+.[0-9]\", \"g\")] | map(tonumber) | {text: \"↑\\(.[-2])kb/s ↓\\(.[-1])kb/s\"}'",
+	    "exec-if": "if transmission-remote -l | grep None &> /dev/null; then exit 1; else exit 0; fi",
+	    "return-type": "json",
+	    "tooltip": false,
+	    "on-click": "xdg-open http://localhost:9091/transmission/web/",
+	    "interval": 10
+	  },
+	
+	  // weather: location is based on IP (shown in tooltip) so can be inaccurate on VPN
+	  "custom/weather": {
+	    "format": "{}",
+	    "exec": "curl -s 'wttr.in/Columbus?format=%l:%c%t' | jq -Rc 'split(\":\") | {text: .[1], tooltip: .[0]}'",
+	    "return-type": "json",
+	    "on-click": "xdg-open https://wttr.in",
+	    "interval": 3600 // 1 hour
+	  },
+	
+	  "memory": {
+	    "format": "ram: {percentage}%"
+	  },
+	
+	  "network": {
+	    "format-disconnected": "", // hides module
+	    "format-ethernet": "",
+	    "format-wifi": "",
+	    "tooltip-format-ethernet": "↑{bandwidthUpBits}  ↓{bandwidthDownBits}",
+	    "tooltip-format-wifi": "{essid} ({signalStrength}%)\n↑{bandwidthUpBits}  ↓{bandwidthDownBits}",
+	    "max-length": 50
+	  },
+	
+	  "pulseaudio": {
+	    "scroll-step": 1.0,
+	    "format": "{icon} {volume}%",
+	    "format-bluetooth": "{icon} {volume}%",
+	    "format-bluetooth-muted": "{icon} ",
+	    "format-muted": "",
+	    "format-icons": {
+	      "headphone": "",
+	      "hands-free": "",
+	      "headset": "",
+	      "phone": "",
+	      "portable": "",
+	      "car": "",
+	      "default": ["", "", ""]
+	    },
+	    "on-click": "pavucontrol"
+	  },
+	
+	  "sway/window": {
+	    "max-length": 100,
+	    "icon": false
+	  }
+	}

@@ -1,0 +1,27 @@
+{
+	"hardware_acceleration": "opengl",
+	"caret_style": "phase",
+	"color_scheme": "gruvbox (Dark) (Hard).sublime-color-scheme",
+	"font_face": "Berkeley Mono",
+	"font_size": 14,
+	"ignored_packages": [
+		"Origami",
+		"Vintage",
+	],
+	"vintageous_reset_mode_when_switching_tabs": false,
+	"spell_check": false,
+	"ensure_newline_at_eof_on_save": true,
+	"hot_exit": false,
+	"vintageous_use_sys_clipboard": true,
+	"theme": "gruvbox.sublime-theme",
+	"vintageous_use_super_keys": false,
+	"translate_tabs_to_spaces": true,
+	"ignored_words":
+	[
+		"html",
+		"lol",
+	],
+	"neovintageous_build_version": 13200,
+	"index_files": true,
+	"console_max_history_lines": 3000,
+}

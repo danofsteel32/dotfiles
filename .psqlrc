@@ -1,0 +1,17 @@
+\set quiet 1
+
+\set null '(null)'
+
+\set prompt1 '%[%033[1m%][%/] # '
+\set prompt2 '... >'
+
+\timing
+
+\x auto
+
+\set histfile ~/.psql_history- :DBNAME
+
+\set histcontrol ignoredups
+
+\unset quiet
+\set client_min_messages to warning;
