@@ -57,7 +57,6 @@ alias diskusage='du -S | sort -nr | $PAGER'
 alias osrs='GDK_SCALE=2 java -jar ./Downloads/RuneLite.jar'
 alias gittree='git ls-tree -r main --name-only'
 alias code='code --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto'
-alias spotify='systemctl --user restart spotifyd.service && spt'
 alias docker="podman"
 
 f() {
