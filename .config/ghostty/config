@@ -42,7 +42,7 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-theme = GruvboxDarkHard
+theme = Gruvbox Dark Hard
 font-family = Berkeley Mono Regular
 font-size = 14
 cursor-click-to-move = true

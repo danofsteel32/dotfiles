@@ -1,0 +1,18 @@
+[init]
+	defaultBranch = main
+[user]
+	email = dan@dandavis.dev
+	name = danofsteel32
+[include]
+    path = /home/dan/.config/delta/themes.gitconfig
+[core]
+    editor = nvim
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    line-numbers = true
+    syntax-theme = gruvbox-dark
+[merge]
+    conflictStyle = zdiff3

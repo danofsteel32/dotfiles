@@ -34,7 +34,6 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 export COLORTERM=truecolor
 export BAT_THEME="gruvbox-dark"
 export EDITOR='nvim'
-export PAGER='nvimpager'
 export MANPAGER='nvim +Man!'
 export MOZ_ENABLE_WAYLAND=1
 
@@ -52,7 +51,6 @@ alias vim='nvim'
 alias ls='eza --hyperlink'
 alias la='eza -a --hyperlink'
 alias ll='eza -alg --sort new --group-directories-first --hyperlink'
-alias less='nvimpager'
 alias diskusage='du -S | sort -nr | $PAGER'
 alias osrs='GDK_SCALE=2 java -jar ./Downloads/RuneLite.jar'
 alias gittree='git ls-tree -r main --name-only'
@@ -60,7 +58,7 @@ alias code='code --enable-features=WaylandWindowDecorations --ozone-platform-hin
 alias docker="podman"
 
 f() {
-    rg --color=always --line-number --no-heading --smart-case "${*:-}" |
+    rg --no-ignore-vcs --color=always --line-number --no-heading --smart-case "${*:-}" |
       fzf --ansi \
           --color "hl:-1:underline,hl+:-1:underline:reverse" \
           --delimiter : \
