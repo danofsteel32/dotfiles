@@ -107,6 +107,17 @@ now(function() require('mini.icons').setup() end)
 now(function() require('mini.tabline').setup() end)
 now(function() require('mini.statusline').setup() end)
 
+now(function() require('mini.completion').setup() end)
+now(function()
+    vim.lsp.config['pylsp'] = {
+        cmd = {'pylsp'},
+        filetypes = {'python'},
+        plugins = {ruff = {enabled = true}},
+        root_markers = {'pyproject.toml'}
+    }
+    vim.lsp.enable('pylsp')
+end)
+
 -- va( select outer ()
 -- vi( select inner ()
 later(function() require('mini.ai').setup() end)
@@ -153,7 +164,7 @@ later(function()
         yaml_ansible = {'ansible-lint'},
         bash = {'shellcheck'},
         lua = {'luacheck'},
-        python = {'ruff', 'mypy'},
+        python = {'mypy'},
         sh = {'shellcheck'},
         shell = {'shellcheck'},
         systemd = {'systemdlint'}
@@ -185,7 +196,7 @@ later(function()
         formatters_by_ft = {
             lua = {"lua-format"},
             -- Conform will run multiple formatters sequentially
-            python = {"ruff_format", "ruff_organize_imports"},
+            -- python = {"ruff_format", "ruff_organize_imports"},
             -- You can customize some of the format options for the filetype (:help conform.format)
             zig = {"zigfmt"},
             bash = {"shfmt"}
