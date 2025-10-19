@@ -2,9 +2,10 @@
 
 _remote_origin="$(git config --get remote.origin.url)"
 _repo_name="${_remote_origin##*/}"
+_repo_name="${_repo_name%.*}"
 
 if [[ $_repo_name == "dotfiles" ]]; then
-  /usr/bin/rg --no-ignore-vcs "$@"
+  /usr/bin/rg --no-ignore-vcs --hidden "$@"
 else
   /usr/bin/rg "$@"
 fi

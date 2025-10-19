@@ -58,7 +58,7 @@ alias code='code --enable-features=WaylandWindowDecorations --ozone-platform-hin
 alias docker="podman"
 
 f() {
-    rg --no-ignore-vcs --color=always --line-number --no-heading --smart-case "${*:-}" |
+    rg --color=always --line-number --no-heading --smart-case "${*:-}" |
       fzf --ansi \
           --color "hl:-1:underline,hl+:-1:underline:reverse" \
           --delimiter : \
