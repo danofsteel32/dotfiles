@@ -55,7 +55,9 @@ alias diskusage='du -S | sort -nr | $PAGER'
 alias osrs='GDK_SCALE=2 java -jar ./Downloads/RuneLite.jar'
 alias gittree='git ls-tree -r main --name-only'
 alias code='code --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto'
-alias docker="podman"
+alias docker='podman'
+alias g='git status'
+alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
 
 f() {
     rg --color=always --line-number --no-heading --smart-case "${*:-}" |
@@ -74,8 +76,7 @@ f() {
 #            --ansi --disabled \
 #            --height=50% --layout=reverse $1
 
-
 # https://codeberg.org/dnkl/foot/issues/628
-bind '"\e[27;2;13~":"\n"'
-bind '"\e[27;5;13~":"\n"'
+# bind '"\e[27;2;13~":"\n"'
+# bind '"\e[27;5;13~":"\n"'
 
