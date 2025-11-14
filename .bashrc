@@ -36,6 +36,7 @@ export BAT_THEME="gruvbox-dark"
 export EDITOR='nvim'
 export MANPAGER='nvim +Man!'
 export MOZ_ENABLE_WAYLAND=1
+export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
 
 # for aravis gstreamer plugin
 export GI_TYPELIB_PATH=/usr/local/lib64/girepository-1.0
@@ -58,6 +59,7 @@ alias code='code --enable-features=WaylandWindowDecorations --ozone-platform-hin
 alias docker='podman'
 alias g='git status'
 alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
+alias cheat='cat ~/Documents/cheatsheet.md'
 
 f() {
     rg --color=always --line-number --no-heading --smart-case "${*:-}" |
